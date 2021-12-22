@@ -39,12 +39,12 @@ export default function Challengers({setNewGame, times, challengers, setChalleng
             time = 'null'
         }
         socket.emit('accept', ({challenger, room, time:time}))
-        setChallengers(old => old.filter(e => e !== challenger))
+        setChallengers(challengers.filter(e => e !== challenger))
         setNewGame(false)
         nav('/Game/' + time + room)
     }
     const refuse = (challenger) => {
-        setChallengers(old => old.filter(e => e !== challenger))
+        setChallengers(challengers.filter(e => e !== challenger))
     }
     useEffect(() => {
         return () => {}
