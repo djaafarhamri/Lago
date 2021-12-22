@@ -122,11 +122,15 @@ function Board(props) {
             orientation === 'black' ? setResult('White Win') : setResult('Black Win')
             setReason('by Timeout') 
             setGameOver(true)
+            mytimer.current.pause()
+            optimer.current.pause()
         }
         socket.on("optimeout", () => {
             orientation === 'black' ? setResult('Black Win') : setResult('White Win')
             setReason('by Timeout') 
             setGameOver(true)
+            mytimer.current.pause()
+            optimer.current.pause()
         })
     }, [timeover, socket, result, reason, gameOver, orientation, room])
 
