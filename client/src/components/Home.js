@@ -25,7 +25,7 @@ function Home() {
     const [ challengers, setChallengers ] = useState([]);
     const { newGame, setNewGame, renderPlay } = Play(name)
     const { newComputerGame, setNewComputerGame, renderComputer } = Computer()
-    const ENDPOINT = 'http://localhost:4000';
+    const ENDPOINT = 'https://lago-chess.herokuapp.com/';
     const inputRef = useRef()
     const [searchParams, setSearchParams] = useSearchParams();
     const p = searchParams.get('p')
