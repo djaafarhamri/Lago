@@ -16,7 +16,7 @@ function Register() {
             setError(true)
         }
         else {
-            await axios.post(ENDPOINT + '/signup', {
+            await axios.post(ENDPOINT + 'signup', {
                 email,
                 username,
                 password

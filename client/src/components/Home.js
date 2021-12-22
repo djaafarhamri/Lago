@@ -60,7 +60,7 @@ function Home() {
     }, [socket, nav, setNewGame])
 
     const login = async () => {
-        await axios.post(ENDPOINT + '/login', {
+        await axios.post(ENDPOINT + 'login', {
             username,
             password
         },{
@@ -74,14 +74,14 @@ function Home() {
     }   
 
     const logout = async () => {
-        await axios.get(ENDPOINT + '/logout', {
+        await axios.get(ENDPOINT + 'logout', {
             withCredentials: true
         })
         .then((res) => nav(0))
         .catch(e=>{console.log(e)})
     }   
     useEffect(() => {
-        axios.get(ENDPOINT + '/game', {
+        axios.get(ENDPOINT + 'game', {
             withCredentials: true,
         })
         .then(res=> {
