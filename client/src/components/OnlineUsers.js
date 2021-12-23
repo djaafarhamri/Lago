@@ -4,6 +4,11 @@ import { SocketContext } from '../context/socket';
 const OnlineUsers = ({name, time}) => {
     const socket = useContext(SocketContext)
     const [ friends, setFriends ] = useState([])
+    useEffect(() => {
+        if (name) {
+            socket.emit('nickname', (name))
+        }
+    }, [name, socket])
     const play = (friend) => {
         socket.emit('play', ({ name, friend, time }))
     }
