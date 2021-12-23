@@ -44,7 +44,7 @@ function Home() {
             socket.emit('nickname', (name))
             setSearchParams()
         }
-    }, [name, socket, setSearchParams])
+    })
 
     useEffect(() => {
         socket.on('challenge', (data) => {
