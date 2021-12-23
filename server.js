@@ -54,7 +54,15 @@ io.on('connection', (socket) => {
     io.emit('online_users', users)
   })
   socket.on('nickname', (name) => { 
-    users.push({name:name, id:socket.id})
+    let exist = false
+    for(const user of users) {
+      if (user.id === socket.id) {
+        exist = true
+      }
+    }
+    if (!exist) {
+      users.push({name:name, id:socket.id})
+    }
     io.emit('online_users', users)
   })
   socket.on('gameleave', (room) => { 
