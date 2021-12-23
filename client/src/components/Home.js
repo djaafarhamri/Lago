@@ -25,7 +25,8 @@ function Home() {
     const [ challengers, setChallengers ] = useState([]);
     const { newGame, setNewGame, renderPlay } = Play(name)
     const { newComputerGame, setNewComputerGame, renderComputer } = Computer()
-    const ENDPOINT = 'https://floating-everglades-75335.herokuapp.com/';
+    //https://floating-everglades-75335.herokuapp.com/
+    const ENDPOINT = 'http://localhost:4000/';
     const inputRef = useRef()
     const [searchParams, setSearchParams] = useSearchParams();
     const p = searchParams.get('p')

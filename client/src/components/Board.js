@@ -57,7 +57,7 @@ function Board(props) {
         })
         socket.on('newTimer', data => {
             setNewTime(data)
-            optimer.current && optimer.current.newSet()
+            optimer.current !==undefined  && optimer.current.newSet()
         })
     }, [socket])
  
@@ -76,8 +76,8 @@ function Board(props) {
             setResult('Draw!!!')
             setReason('by Draw Offer') 
             setGameOver(true)
-            mytimer.current.pause()
-            optimer.current.pause()
+            mytimer.current !==undefined && mytimer.current.pause()
+            optimer.current !==undefined && optimer.current.pause()
         })
     }, [socket, room])
     const resign = () => {
@@ -94,26 +94,27 @@ function Board(props) {
             });
             setPosition(chess.fen())
             if (chess.fen() !== preFen) {
-                mytimer.current.pause()
-                optimer.current.resume()
+                mytimer.current !==undefined && mytimer.current.pause()
+                optimer.current !==undefined && optimer.current.resume()
                 socket.emit('move', [ sourceSquare, targetSquare, room ])
-                mytimer.current.incr()
+                mytimer.current !==undefined && mytimer.current.incr()
                 socket.emit('timerSet',{room, time:mytimer.current.set()})
             }
         }
     }
+    
     useEffect(() => {
         socket.on("receive-move", (move) => {
-        mytimer.current.resume()
-        optimer.current.pause()
-        let sourceSquare = move[0];
-        let targetSquare = move[1];
-        chess.move({
-            from: sourceSquare,
-            to: targetSquare,
-            promotion: "q"
-            });
-        setPosition(chess.fen())
+            mytimer.current !==undefined && mytimer.current.resume()
+            optimer.current !==undefined && optimer.current.pause()
+            let sourceSquare = move[0];
+            let targetSquare = move[1];
+            chess.move({
+                from: sourceSquare,
+                to: targetSquare,
+                promotion: "q"
+                });
+            setPosition(chess.fen())
         });
     }, [socket])
     useEffect(() => {
@@ -122,15 +123,15 @@ function Board(props) {
             orientation === 'black' ? setResult('White Win') : setResult('Black Win')
             setReason('by Timeout') 
             setGameOver(true)
-            mytimer.current.pause()
-            optimer.current.pause()
+            mytimer.current !==undefined && mytimer.current.pause()
+            optimer.current !==undefined && optimer.current.pause()
         }
         socket.on("optimeout", () => {
             orientation === 'black' ? setResult('Black Win') : setResult('White Win')
             setReason('by Timeout') 
             setGameOver(true)
-            mytimer.current.pause()
-            optimer.current.pause()
+            mytimer.current !==undefined && mytimer.current.pause()
+            optimer.current !==undefined && optimer.current.pause()
         })
     }, [timeover, socket, result, reason, gameOver, orientation, room])
 
@@ -139,8 +140,8 @@ function Board(props) {
             orientation === 'black' ? setResult('Black Win') : setResult('White Win')
             setReason('by resignation') 
             setGameOver(true)
-            mytimer.current.pause()
-            optimer.current.pause()
+            mytimer.current !==undefined && mytimer.current.pause()
+            optimer.current !==undefined && optimer.current.pause()
         })
     }, [socket, orientation])
 
@@ -151,8 +152,8 @@ function Board(props) {
                     chess.turn() === 'w' ? setResult('Black Win') : setResult('White Win')
                     setReason('by checkmate') 
                     setGameOver(true)
-                    mytimer.current.pause()
-                    optimer.current.pause()
+                    mytimer.current !==undefined && mytimer.current.pause()
+                    optimer.current !==undefined && optimer.current.pause()
                 }, 100);
             }
             if (chess.in_threefold_repetition()){
@@ -160,8 +161,8 @@ function Board(props) {
                     setResult('Draw!!!')
                     setReason('by repetition') 
                     setGameOver(true)
-                    mytimer.current.pause()
-                    optimer.current.pause()
+                    mytimer.current !==undefined && mytimer.current.pause()
+                    optimer.current !==undefined && optimer.current.pause()
                 }, 100);    
             }
             if (chess.in_stalemate()){
@@ -169,8 +170,8 @@ function Board(props) {
                     setResult('Draw!!!')
                     setReason('by stalemate')
                     setGameOver(true)
-                    mytimer.current.pause()
-                    optimer.current.pause()
+                    mytimer.current !==undefined && mytimer.current.pause()
+                    optimer.current !==undefined && optimer.current.pause()
                 }, 100);    
             }
             if (chess.insufficient_material()){
@@ -178,8 +179,8 @@ function Board(props) {
                     setResult('Draw!!!')
                     setReason('by insufficient material') 
                     setGameOver(true)
-                    mytimer.current.pause()
-                    optimer.current.pause()
+                    mytimer.current !==undefined && mytimer.current.pause()
+                    optimer.current !==undefined && optimer.current.pause()
                 }, 100);    
             }
         }
@@ -197,8 +198,8 @@ function Board(props) {
                         setResult('Draw!!!')
                         setReason('by Draw Offer') 
                         setGameOver(true)
-                        mytimer.current.pause()
-                        optimer.current.pause()
+                        mytimer.current !==undefined && mytimer.current.pause()
+                        optimer.current !==undefined && optimer.current.pause()
                     }}>accept</button> 
                     <button onClick={() => {
                         setOpDraw(false)
@@ -234,8 +235,8 @@ function Board(props) {
                             orientation === 'black' ? setResult('Black Win') : setResult('White Win')
                             setReason('by resignation') 
                             setGameOver(true)
-                            mytimer.current.pause()
-                            optimer.current.pause()
+                            mytimer.current !==undefined && mytimer.current.pause()
+                            optimer.current !==undefined && optimer.current.pause()
                             }} className='draw'>resign</button>
                     </div>
                 <MyTimer expiryTimestamp={new Date().setSeconds(new Date().getSeconds() + time*60 )} incr={incr} setTimeover={setTimeover} id='mytimer' ref={mytimer}  />

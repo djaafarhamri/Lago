@@ -133,7 +133,7 @@ io.on('connection', (socket) => {
   })
   
   socket.on("move", (move) => {
-    socket.broadcast.to(move[2]).emit('receive-move', [move[0], move[1]])
+    socket.to(move[2]).emit('receive-move', [move[0], move[1]])
   });
   
 });
