@@ -87,7 +87,7 @@ io.on('connection', (socket) => {
         uid = user.id;
       }
     }
-    socket.to(uid).emit('friendGame', {room:data.room, time:data.time})
+    io.to(uid).emit('friendGame', {room:data.room, time:data.time})
   })
   socket.on("room", (room) => {
     if (io.sockets.adapter.rooms.get(room) === undefined) {
