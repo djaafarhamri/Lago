@@ -1,7 +1,7 @@
-@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap");
 
 * {
-  margin: 0;  
+  margin: 0;
   font-family: "Quicksand";
   padding: 0;
 }
@@ -56,7 +56,7 @@
   height: 100vh;
   display: flex;
   flex-direction: column;
-  background-color: rgb(49,47,42);
+  background-color: rgb(49, 47, 42);
 }
 .nav {
   color: white;
@@ -65,7 +65,7 @@
   justify-content: space-between;
   padding: 10px;
   height: 40px;
-  background-color: rgb(39,36,35);
+  background-color: rgb(39, 36, 35);
 }
 .login {
   display: flex;
@@ -73,13 +73,13 @@
 }
 .login input {
   color: white;
-  background-color: rgb(61,59,57);
+  background-color: rgb(61, 59, 57);
   height: 25px;
   margin-left: 3px;
   border-radius: 2px;
   border: 0;
 }
-.login input::placeholder { 
+.login input::placeholder {
   color: white;
   opacity: 0.6;
 }
@@ -176,8 +176,13 @@
   color: #7a3ffb;
 }
 .play {
-  background: rgb(2,0,36);
-  background: linear-gradient(360deg, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 0%, rgba(0,212,255,1) 100%);
+  background: rgb(2, 0, 36);
+  background: linear-gradient(
+    360deg,
+    rgba(2, 0, 36, 1) 0%,
+    rgba(9, 9, 121, 1) 0%,
+    rgba(0, 212, 255, 1) 100%
+  );
   width: 320px;
   height: 450px;
   display: grid;
@@ -204,8 +209,13 @@
   color: white;
 }
 .puzzles {
-  background: rgb(2,0,36);
-  background: linear-gradient(180deg, rgba(2,0,36,1) 0%, rgba(254,195,0,1) 0%, rgba(254,97,0,1) 100%);
+  background: rgb(2, 0, 36);
+  background: linear-gradient(
+    180deg,
+    rgba(2, 0, 36, 1) 0%,
+    rgba(254, 195, 0, 1) 0%,
+    rgba(254, 97, 0, 1) 100%
+  );
   width: 320px;
   height: 450px;
   display: grid;
@@ -220,8 +230,12 @@
   width: 140px;
 }
 .computer {
-  background: rgb(122,63,251);
-  background: linear-gradient(0deg, rgba(122,63,251,1) 0%, rgba(219,70,252,1) 100%);
+  background: rgb(122, 63, 251);
+  background: linear-gradient(
+    0deg,
+    rgba(122, 63, 251, 1) 0%,
+    rgba(219, 70, 252, 1) 100%
+  );
   width: 320px;
   height: 450px;
   display: grid;
@@ -242,12 +256,12 @@
   align-items: center;
 }
 .start button {
-  background: rgb(2,0,36);
+  background: rgb(2, 0, 36);
   color: white;
   border: 0;
-  opacity: .7;
+  opacity: 0.7;
   cursor: pointer;
-  transition: .5s;
+  transition: 0.5s;
   width: 200px;
   height: 40px;
 }
@@ -264,9 +278,9 @@
   background: #6b2900;
   color: white;
   border: 0;
-  opacity: .7;
+  opacity: 0.7;
   cursor: pointer;
-  transition: .5s;
+  transition: 0.5s;
   width: 200px;
   height: 40px;
 }
@@ -287,9 +301,9 @@
   background: #412086;
   color: white;
   border: 0;
-  opacity: .7;
+  opacity: 0.7;
   cursor: pointer;
-  transition: .5s;
+  transition: 0.5s;
   width: 200px;
   height: 40px;
 }
@@ -307,9 +321,11 @@
   width: 200px;
   background-color: white;
   color: black;
-  box-shadow: rgba(0, 0, 0, 0.09) 0px 2px 1px, rgba(0, 0, 0, 0.09) 0px 4px 2px, rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px, rgba(0, 0, 0, 0.09) 0px 32px 16px;
+  box-shadow: rgba(0, 0, 0, 0.09) 0px 2px 1px, rgba(0, 0, 0, 0.09) 0px 4px 2px,
+    rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px,
+    rgba(0, 0, 0, 0.09) 0px 32px 16px;
   border-radius: 16px;
-  z-index:1000
+  z-index: 1000;
 }
 .result button {
   margin-top: 8px;
@@ -318,7 +334,7 @@
   border: 0;
   border-radius: 6px;
   background-color: forestgreen;
-  color: white; 
+  color: white;
 }
 .online_users {
   color: white;
@@ -410,7 +426,7 @@
 .register {
   position: relative;
   z-index: 1;
-  background: #FFFFFF;
+  background: #ffffff;
   max-width: 360px;
   margin: 0 auto 100px;
   padding: 45px;
@@ -432,18 +448,20 @@
   font-family: "Roboto", sans-serif;
   text-transform: uppercase;
   outline: 0;
-  background: #4CAF50;
+  background: #4caf50;
   width: 100%;
   border: 0;
   padding: 15px;
-  color: #FFFFFF;
+  color: #ffffff;
   font-size: 14px;
   -webkit-transition: all 0.3 ease;
   transition: all 0.3 ease;
   cursor: pointer;
 }
-.register button:hover,.register button:active,.register button:focus {
-  background: #43A047;
+.register button:hover,
+.register button:active,
+.register button:focus {
+  background: #43a047;
 }
 
 .computer_board {
@@ -464,11 +482,11 @@
   flex-direction: column;
   align-items: center;
 }
-.config h2 { 
+.config h2 {
   align-self: flex-start;
   margin: 10px;
 }
-.slider p{
+.slider p {
   padding-bottom: 15px;
 }
 .btn {

@@ -1,7 +1,7 @@
-const jwt = require('jsonwebtoken');
+const jwt = require("jsonwebtoken");
 const User = require("../models/users");
-const dotenv = require('dotenv')
-dotenv.config() 
+const dotenv = require("dotenv");
+dotenv.config();
 
 const requireAuth = (req, res, next) => {
   const token = req.cookies.jwt;
@@ -17,7 +17,7 @@ const requireAuth = (req, res, next) => {
       }
     });
   } else {
-    res.json("object")
+    res.json("object");
   }
 };
 
@@ -28,7 +28,7 @@ const checkUser = (req, res, next) => {
     jwt.verify(token, process.env.JWT_SECRET, async (err, decodedToken) => {
       if (err) {
         req.currUser = null;
-        next()
+        next();
       } else {
         let user = await User.findById(decodedToken.id);
         req.currUser = user;
@@ -40,6 +40,5 @@ const checkUser = (req, res, next) => {
     next();
   }
 };
-
 
 module.exports = { requireAuth, checkUser };
