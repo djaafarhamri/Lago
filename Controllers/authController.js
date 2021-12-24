@@ -18,7 +18,7 @@ const handleErrors = (err) => {
     Object.values(err.errors).forEach(({ properties }) => {
       errors[properties.path] = properties.message;
     });
-  }
+  } 
 
   // duplicate email error
   if (err.code === 11000) {

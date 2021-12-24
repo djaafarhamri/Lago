@@ -1,14 +1,10 @@
 import React, { useEffect, useState, useContext } from "react";
 import { SocketContext } from "../context/socket";
+import defAvatatar from '../assets/chess default avatar.jpg'
 
 const OnlineUsers = ({ name, time }) => {
   const socket = useContext(SocketContext);
   const [friends, setFriends] = useState([]);
-  useEffect(() => {
-    if (name) {
-      socket.emit("nickname", name);
-    }
-  }, [name, socket]);
   const play = (friend) => {
     socket.emit("play", { name, friend, time });
   };
@@ -41,21 +37,27 @@ const OnlineUsers = ({ name, time }) => {
     return () => {};
   }, []);
   return (
-    <div className="friends">
-      {friends &&
-        friends.map((friend, friendid) => (
-          <div className="friend" key={friendid}>
-            <h2>{friend}</h2>
-            <button
-              className={friend}
-              onClick={() => {
-                play(friend);
-              }}
-            >
-              Play
-            </button>
-          </div>
-        ))}
+    <div className="online">
+      <div className="title">
+        <h2>Online Users</h2>
+      </div>
+      <div className="friends">
+        {friends &&
+          friends.map((friend, friendid) => (
+            <div className="friend" key={friendid}>
+              <img src={defAvatatar} alt="" />
+              <h2>{friend}</h2>
+              <button
+                className={friend}
+                onClick={() => {
+                  play(friend);
+                }}
+              >
+                Play
+              </button>
+            </div>
+          ))}
+      </div>
     </div>
   );
 };

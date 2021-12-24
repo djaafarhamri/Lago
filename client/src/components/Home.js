@@ -7,10 +7,12 @@ import logo from "../assets/logo.png";
 import err from "../assets/close.png";
 import Challengers from "./Challengers";
 import Play from "./Play";
+import Chessboard from "chessboardjsx";
 import Puzzles from "./Puzzles";
 import Computer from "./Computer";
 import Newgame from "./Newgame";
 import NewComputerGame from "./NewComputerGame";
+import OnlineUsers from "./OnlineUsers";
 
 function Home() {
   const nav = useNavigate();
@@ -26,7 +28,7 @@ function Home() {
   const { newGame, setNewGame, renderPlay } = Play(name);
   const { newComputerGame, setNewComputerGame, renderComputer } = Computer();
   //https://floating-everglades-75335.herokuapp.com/
-  const ENDPOINT = "https://floating-everglades-75335.herokuapp.com/";
+  const ENDPOINT = "http://localhost:4000/";
   const inputRef = useRef();
   const [searchParams, setSearchParams] = useSearchParams();
   const p = searchParams.get("p");
@@ -178,10 +180,11 @@ function Home() {
             challengers={challengers}
             setChallengers={setChallengers}
           />
-          {renderPlay}
-          <Puzzles />
-          {renderComputer}
-          {newGame && <Newgame name={name} setNewGame={setNewGame} />}
+          <div className="homeBoard">
+            <Chessboard id="homeBoard" width={600} position="start" />
+          </div>
+          
+          <OnlineUsers name={name} time={5} />
           {newComputerGame && (
             <NewComputerGame setNewComputerGame={setNewComputerGame} />
           )}

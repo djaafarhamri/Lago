@@ -133,11 +133,57 @@
 }
 /* ---Content--- */
 .content {
-  display: flex;
+  display: grid;
+  grid-template-rows: 30px 600px;
+  grid-template-columns: 58px 600px 58px 400px;
   height: calc(100vh - 40px);
-  align-items: center;
-  justify-content: center;
 }
+.homeBoard {
+  grid-column: 2/3;
+  grid-row: 2/3;
+}
+.online {
+  grid-column: 4/4;
+  grid-row: 2/3;
+  background: #212020;
+  width: 400px;
+}
+.title {
+  margin: 10px;
+  color: white;
+  text-align: center;
+}
+.friends {
+  display: flex;
+  flex-direction: column;
+  overflow-y: scroll;
+}
+.friend {
+  display: flex;
+  align-items: center;
+  padding: 5px;
+  color: white;
+}
+.friend img {
+  height: 47px;
+  width: 47px;
+  padding-right: 10px;
+}
+.friend button {
+  margin-left: auto;
+  margin-right: 15px;
+  color: white;
+  width: 100px;
+  height: 40px;
+  background: #412086;
+  border: 0;
+  font-size: 20px;
+  font-weight: bold;
+  cursor: pointer;
+  border-radius: 10px;
+  transition: all 0.2s;
+}
+
 .newgame {
   position: absolute;
   width: 211vh;
@@ -345,32 +391,6 @@
   height: 500px;
   width: 450px;
   padding: 8px;
-}
-.friends {
-  display: flex;
-  flex-direction: column;
-  width: 440px;
-  overflow-y: scroll;
-}
-.friend {
-  display: flex;
-  align-items: center;
-  padding: 5px;
-}
-
-.friend button {
-  margin-left: auto;
-  margin-right: 15px;
-  color: white;
-  width: 100px;
-  height: 40px;
-  background: #412086;
-  border: 0;
-  font-size: 20px;
-  font-weight: bold;
-  cursor: pointer;
-  border-radius: 10px;
-  transition: all 0.2s;
 }
 
 .challenger {
