@@ -1,0 +1,79 @@
+.container {
+    background-color: rgb(30, 34, 34);
+    height: 725px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .board-container p {
+    color: white;
+    align-self: flex-start;
+  }
+  .board-container {
+    max-width: 600px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .playerInfo p {
+    align-self: flex-end;
+  }
+  .playerInfo {
+    align-self: flex-start;
+    display: flex;
+  }
+  .playerInfo img {
+    height: 40px;
+    width: 40px;
+    padding-right: 10px;
+  }
+  .player {
+    display: flex;
+    width: 600px;
+  }
+  .draw {
+    cursor: pointer;
+    align-self: flex-end;
+    height: 30px;
+    width: 100px;
+    margin-left: 65px;
+    border: 0;
+    border-radius: 6px;
+    background-color: forestgreen;
+    color: white;
+    opacity: 0.8;
+    transition: 0.3s;
+  }
+  .draw:hover {
+    opacity: 1;
+  }
+  .gameback {
+    position: absolute;
+    top: 50px;
+    left: 50px;
+    cursor: pointer;
+    color: white;
+    font-weight: bold;
+    background: transparent;
+    border: 0;
+  }
+  .gameback:hover {
+    text-decoration: underline;
+  }
+  .draw_offer {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    position: absolute;
+    right: 90vh;
+    top: 20px;
+    width: 300px;
+    height: 60px;
+    background-color: rgb(21, 116, 21, 0.5);
+    color: white;
+    border-radius: 10px;
+    z-index: 1000;
+  }
+    

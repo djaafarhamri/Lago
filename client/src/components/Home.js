@@ -1,14 +1,13 @@
 import React, { useState, useEffect, useContext, useRef } from "react";
 import { useNavigate, useSearchParams } from "react-router-dom";
+import './Home.css'
 import axios from "axios";
 import { SocketContext } from "../context/socket";
 import defaultAvatar from "../assets/chess default avatar.jpg";
 import logo from "../assets/logo.png";
 import err from "../assets/close.png";
 import Challengers from "./Challengers";
-import Play from "./Play";
 import Chessboard from "chessboardjsx";
-import Computer from "./Computer";
 import OnlineUsers from "./OnlineUsers";
 import GameSettings from "./GameSettings";
 
@@ -23,8 +22,6 @@ function Home() {
   const [loginError, setLoginError] = useState(false);
   const [showInput, setShowInput] = useState(false);
   const [challengers, setChallengers] = useState([]);
-  const { newGame, setNewGame, renderPlay } = Play(name);
-  const { newComputerGame, setNewComputerGame, renderComputer } = Computer();
   const { seconds, minutes, hours, incre, renderGameSettings } = GameSettings();
   //https://floating-everglades-75335.herokuapp.com/
   const ENDPOINT = "http://localhost:4000/";
@@ -57,7 +54,7 @@ function Home() {
     socket.on("friendGame", (data) => {
       data.room && nav("/Game/" + data.time + data.room);
     });
-  }, [socket, nav, setNewGame]);
+  }, [socket, nav]);
 
   const login = async () => {
     await axios
@@ -77,7 +74,6 @@ function Home() {
         setLoginError(true);
       });
   };
-
   const logout = async () => {
     await axios
       .get(ENDPOINT + "logout", {
@@ -177,7 +173,7 @@ function Home() {
             setChallengers={setChallengers}
           />
           <div className="homeBoard">
-            <Chessboard id="homeBoard" width={600} position="start" />
+            <Chessboard width={600} position="start" />
           </div>
           <OnlineUsers name={name} time={`${hours}@${minutes}@${seconds}@${incre}@`} />
           {renderGameSettings}

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
+import './ComputerBoard.css'
 import Chessboard from "chessboardjsx";
-import { useParams } from "react-router";
 import * as Chess from "chess.js";
 import { Game, getFen } from "js-chess-engine";
 import Result from "./Result";

@@ -1,4 +1,5 @@
 import React, { useEffect, useState, useContext } from "react";
+import './OnlineUsers.css'
 import { SocketContext } from "../context/socket";
 import defAvatatar from "../assets/chess default avatar.jpg";
 import Computer from "./Computer";

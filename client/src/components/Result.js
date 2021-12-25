@@ -1,4 +1,5 @@
 import React from "react";
+import './Result.css'
 import { useNavigate } from "react-router";
 
 export default function Result(props) {

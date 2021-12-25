@@ -1,4 +1,5 @@
 import React, { useImperativeHandle, forwardRef, useEffect } from "react";
+import './MyTimer.css'
 import { useTimer } from "react-timer-hook";
 
 const MyTimer = forwardRef((props, ref) => {

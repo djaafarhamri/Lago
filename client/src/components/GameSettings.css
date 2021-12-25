@@ -14,10 +14,13 @@
     color: white;
     margin: 10px;
 }
+.TimeControl {
+    display: flex;
+}
 .TimeControl input {
     background: #383635;
     border: 0;
-    margin: 5px;
+    margin-left: 10px;
     width: 60px;
     height: 40px;
     color: white;
@@ -25,6 +28,11 @@
 .TimeControl input::placeholder {
     padding-left: 5px;
 }
-.right {
-    margin-left: 180px;
+.GameSettingsInput {
+    display: flex;
+    flex-direction: column;
+}
+.GameSettingsInput p {
+    color: white;
+    margin-left: 10px;
 }

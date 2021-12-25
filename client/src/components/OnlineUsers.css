@@ -1,0 +1,39 @@
+
+.online {
+    grid-column: 4/5;
+    grid-row: 2/3;
+    background: #212020;
+    width: 400px;
+  }
+  
+  .friends {
+    display: flex;
+    flex-direction: column;
+    overflow-y: scroll;
+    height: 400px;
+  }
+  .friend {
+    display: flex;
+    align-items: center;
+    padding: 5px;
+    color: white;
+  }
+  .friend img {
+    height: 47px;
+    width: 47px;
+    padding-right: 10px;
+  }
+  .friend button {
+    margin-left: auto;
+    margin-right: 15px;
+    color: white;
+    width: 100px;
+    height: 40px;
+    background: #412086;
+    border: 0;
+    font-size: 20px;
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 10px;
+    transition: all 0.2s;
+  }

@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useContext, useRef } from "react";
+import './Board.css'
 import { useParams, useNavigate } from "react-router-dom";
 import Chessboard from "chessboardjsx";
 import * as Chess from "chess.js";
