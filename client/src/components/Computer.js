@@ -1,27 +1,20 @@
 import React, { useState } from "react";
-import comuter_image from "../assets/computer.png";
+import { Link } from "react-router-dom";
+import computer from "../assets/computer.png";
 
 export default function Computer() {
-  const [newComputerGame, setNewComputerGame] = useState(false);
-  return {
-    newComputerGame,
-    setNewComputerGame,
-    renderComputer: (
-      <div className="computer">
-        <h1>Computer</h1>
-        <div className="profile">
-          <img src={comuter_image} alt="" />
+  return (
+      <>
+        <div className="title">
+          <h2>Play the Computer</h2>
         </div>
-        <div className="computer_start">
-          <button
-            onClick={() => {
-              setNewComputerGame(true);
-            }}
-          >
-            Start Game
-          </button>
+        <div className="friend computer">
+          <img src={computer} alt="" />
+          <h2>Computer</h2>
+          <Link to="/computer">
+            <button>Play</button>
+          </Link>
         </div>
-      </div>
-    ),
-  };
+      </>
+    )
 }

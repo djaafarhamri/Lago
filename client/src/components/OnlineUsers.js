@@ -1,6 +1,7 @@
 import React, { useEffect, useState, useContext } from "react";
 import { SocketContext } from "../context/socket";
-import defAvatatar from '../assets/chess default avatar.jpg'
+import defAvatatar from "../assets/chess default avatar.jpg";
+import Computer from "./Computer";
 
 const OnlineUsers = ({ name, time }) => {
   const socket = useContext(SocketContext);
@@ -33,9 +34,7 @@ const OnlineUsers = ({ name, time }) => {
     return () => {};
   }, [socket, name]);
 
-  useEffect(() => {
-    return () => {};
-  }, []);
+      
   return (
     <div className="online">
       <div className="title">
@@ -58,6 +57,7 @@ const OnlineUsers = ({ name, time }) => {
             </div>
           ))}
       </div>
+      <Computer />
     </div>
   );
 };

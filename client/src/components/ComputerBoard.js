@@ -8,10 +8,8 @@ import Result from "./Result";
 const chess = new Chess();
 var game = new Game();
 export default function ComputerBoard() {
-  const { config } = useParams();
-  var conArr = config.split("p");
-  const orientation = conArr[0];
-  const level = conArr[1];
+  let level = 1;
+  let orientation = 'white'
   const [draggable, setDraggable] = useState(false);
   const [canDrag, setCanDrag] = useState(false);
   const [position, setPosition] = useState("start");

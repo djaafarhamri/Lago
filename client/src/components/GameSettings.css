@@ -1,0 +1,30 @@
+.GameSettings {
+    height: 600px;
+    width: 300px;
+    grid-column: 6/7;
+    grid-row: 2/3;
+    background: #212020;
+}
+.GameSettings h2 {
+    color: white;
+    text-align: center;
+    margin: 10px;
+}
+.GameSettings h3 {
+    color: white;
+    margin: 10px;
+}
+.TimeControl input {
+    background: #383635;
+    border: 0;
+    margin: 5px;
+    width: 60px;
+    height: 40px;
+    color: white;
+}
+.TimeControl input::placeholder {
+    padding-left: 5px;
+}
+.right {
+    margin-left: 180px;
+}

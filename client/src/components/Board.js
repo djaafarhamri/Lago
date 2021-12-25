@@ -11,7 +11,7 @@ const chess = new Chess();
 function Board(props) {
   const socket = useContext(SocketContext);
   const nav = useNavigate();
-  const { room } = useParams();
+  const { param } = useParams();
   const [position, setPosition] = useState("start");
   const [newTime, setNewTime] = useState(0);
   const [result, setResult] = useState("");
@@ -24,14 +24,17 @@ function Board(props) {
   const [opponantName, setOpponantName] = useState("Waiting For Opponant...");
   const mytimer = useRef();
   const optimer = useRef();
-  var time = parseInt(room.charAt(0) + room.charAt(1));
-  var incr = parseInt(room.charAt(2));
+  var config1;
+  config1 = param.split('@')
+  var hour = parseInt(config1[0]);
+  var min = parseInt(config1[1]);
+  var sec = parseInt(config1[2]);
+  var incr = parseInt(config1[3]);
+  var time = (hour * 3600) + (min * 60) + sec
+  var room = config1[4];
 
   useEffect(() => {
     chess.load("rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1");
-    return () => {
-      chess.load("rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1");
-    };
   }, []);
   useEffect(() => {
     socket.emit("opname", { name: props.name, room });
@@ -280,7 +283,7 @@ function Board(props) {
           </div>
           <MyTimer
             expiryTimestamp={new Date().setSeconds(
-              new Date().getSeconds() + time * 60
+              new Date().getSeconds() + time
             )}
             incr={incr}
             newTime={newTime}
@@ -325,7 +328,7 @@ function Board(props) {
           </div>
           <MyTimer
             expiryTimestamp={new Date().setSeconds(
-              new Date().getSeconds() + time * 60
+              new Date().getSeconds() + time
             )}
             incr={incr}
             setTimeover={setTimeover}

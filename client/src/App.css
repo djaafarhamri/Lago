@@ -133,9 +133,11 @@
 }
 /* ---Content--- */
 .content {
+  margin: auto;
   display: grid;
+  max-width: 1612px;
   grid-template-rows: 30px 600px;
-  grid-template-columns: 58px 600px 58px 400px;
+  grid-template-columns: 58px 600px 58px 400px 58px 300px 58px;
   height: calc(100vh - 40px);
 }
 .homeBoard {
@@ -143,7 +145,7 @@
   grid-row: 2/3;
 }
 .online {
-  grid-column: 4/4;
+  grid-column: 4/5;
   grid-row: 2/3;
   background: #212020;
   width: 400px;
@@ -157,6 +159,7 @@
   display: flex;
   flex-direction: column;
   overflow-y: scroll;
+  height: 400px;
 }
 .friend {
   display: flex;
@@ -183,18 +186,36 @@
   border-radius: 10px;
   transition: all 0.2s;
 }
+.computer a {
+  margin-left: auto;
+  margin-right: 15px;
+  color: white;
+  width: 100px;
+  height: 40px;
+  background: #412086;
+  border: 0;
+  font-size: 20px;
+  font-weight: bold;
+  cursor: pointer;
+  border-radius: 10px;
+  transition: all 0.2s;
+}
 
 .newgame {
   position: absolute;
-  width: 211vh;
-  height: 100vh;
-  top: 0;
-  left: 0;
-  background: #000;
+  background: #212020;
+  right: 25%;
+  height: 500px;
+  width: 600px;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap: 100px;
+  z-index: 1000;
+}
+.newgame h2 {
+  color: white;
+  padding-bottom: 20px;
 }
 .buttonback {
   position: absolute;
@@ -275,7 +296,7 @@
   height: 140px;
   width: 140px;
 }
-.computer {
+.computer2 {
   background: rgb(122, 63, 251);
   background: linear-gradient(
     0deg,
@@ -287,11 +308,11 @@
   display: grid;
   grid-template-rows: 100px 250px 50px 50px;
 }
-.computer h1 {
+.computer2 h1 {
   padding: 25px;
   color: white;
 }
-.computer img {
+.computer2 img {
   height: 140px;
   width: 140px;
 }

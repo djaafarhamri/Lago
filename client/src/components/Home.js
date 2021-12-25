@@ -8,11 +8,9 @@ import err from "../assets/close.png";
 import Challengers from "./Challengers";
 import Play from "./Play";
 import Chessboard from "chessboardjsx";
-import Puzzles from "./Puzzles";
 import Computer from "./Computer";
-import Newgame from "./Newgame";
-import NewComputerGame from "./NewComputerGame";
 import OnlineUsers from "./OnlineUsers";
+import GameSettings from "./GameSettings";
 
 function Home() {
   const nav = useNavigate();
@@ -27,6 +25,7 @@ function Home() {
   const [challengers, setChallengers] = useState([]);
   const { newGame, setNewGame, renderPlay } = Play(name);
   const { newComputerGame, setNewComputerGame, renderComputer } = Computer();
+  const { seconds, minutes, hours, incre, renderGameSettings } = GameSettings();
   //https://floating-everglades-75335.herokuapp.com/
   const ENDPOINT = "http://localhost:4000/";
   const inputRef = useRef();
@@ -44,7 +43,6 @@ function Home() {
   useEffect(() => {
     if (name) {
       socket.emit("nickname", name);
-      setSearchParams();
     }
   }, [name, socket, setSearchParams]);
 
@@ -57,8 +55,7 @@ function Home() {
 
   useEffect(() => {
     socket.on("friendGame", (data) => {
-      setNewGame(false);
-      nav("/Game/" + data.time + data.room);
+      data.room && nav("/Game/" + data.time + data.room);
     });
   }, [socket, nav, setNewGame]);
 
@@ -175,7 +172,6 @@ function Home() {
             </div>
           )}
           <Challengers
-            setNewGame={setNewGame}
             times={times}
             challengers={challengers}
             setChallengers={setChallengers}
@@ -183,11 +179,8 @@ function Home() {
           <div className="homeBoard">
             <Chessboard id="homeBoard" width={600} position="start" />
           </div>
-          
-          <OnlineUsers name={name} time={5} />
-          {newComputerGame && (
-            <NewComputerGame setNewComputerGame={setNewComputerGame} />
-          )}
+          <OnlineUsers name={name} time={`${hours}@${minutes}@${seconds}@${incre}@`} />
+          {renderGameSettings}
         </div>
       </div>
     ),

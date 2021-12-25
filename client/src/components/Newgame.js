@@ -1,6 +1,4 @@
 import React, { useState, useEffect } from "react";
-import OnlineUsers from "./OnlineUsers";
-import close from "../assets/cancel.png";
 
 function Newgame({ name, setNewGame }) {
   const [timeControl, setTimeControl] = useState(0);
@@ -30,14 +28,7 @@ function Newgame({ name, setNewGame }) {
   }, []);
   return (
     <div className="newgame">
-      <button
-        className="buttonback"
-        onClick={() => {
-          setNewGame(false);
-        }}
-      >
-        <img src={close} alt="" />
-      </button>
+      <h2>Time Control</h2>
       <div className="timeControl">
         <button
           style={
@@ -147,10 +138,6 @@ function Newgame({ name, setNewGame }) {
         >
           60 min
         </button>
-      </div>
-      <div className="online_users">
-        <h2>Online users</h2>
-        <OnlineUsers name={name} time={timeControl} />
       </div>
     </div>
   );
