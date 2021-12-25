@@ -24,7 +24,7 @@ function Home() {
   const [challengers, setChallengers] = useState([]);
   const { seconds, minutes, hours, incre, renderGameSettings } = GameSettings();
   //https://floating-everglades-75335.herokuapp.com/
-  const ENDPOINT = "http://localhost:4000/";
+  const ENDPOINT = "https://floating-everglades-75335.herokuapp.com/";
   const inputRef = useRef();
   const [searchParams, setSearchParams] = useSearchParams();
   const p = searchParams.get("p");
