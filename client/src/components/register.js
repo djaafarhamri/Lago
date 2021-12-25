@@ -11,7 +11,7 @@ function Register() {
   const [username, setUsrname] = useState("");
   const [password, setPassword] = useState("");
   const nav = useNavigate();
-  const ENDPOINT = "https://floating-everglades-75335.herokuapp.com/";
+  const ENDPOINT = "http://localhost:4000/";
   const register = async () => {
     if (email === "" || username === "" || password === "") {
       setError(true);

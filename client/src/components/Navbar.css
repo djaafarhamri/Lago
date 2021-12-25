@@ -1,0 +1,94 @@
+.nav {
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px;
+  height: 40px;
+  background-color: rgb(39, 36, 35);
+}
+.login {
+  display: flex;
+  align-items: center;
+}
+.login input {
+  color: white;
+  background-color: rgb(61, 59, 57);
+  height: 25px;
+  margin-left: 3px;
+  border-radius: 2px;
+  border: 0;
+}
+.login input::placeholder {
+  color: white;
+  opacity: 0.6;
+}
+
+.login button {
+  height: 30px;
+  width: 100px;
+  margin-right: 10px;
+  border: 0;
+  border-radius: 6px;
+  background-color: forestgreen;
+  color: white;
+  opacity: 0.8;
+  transition: 0.3s;
+}
+.login button:hover {
+  opacity: 1;
+}
+
+.logininfo button {
+  height: 30px;
+  width: 100px;
+  margin-right: 10px;
+  border: 0;
+  border-radius: 6px;
+  background-color: forestgreen;
+  color: white;
+  opacity: 0.8;
+  transition: 0.3s;
+}
+.logininfo button:hover {
+  opacity: 1;
+}
+.logininfo img {
+  height: 40px;
+  width: 40px;
+  padding-right: 10px;
+}
+.logo img {
+  height: 60px;
+  width: 60px;
+  padding-right: 10px;
+}
+.logo {
+  display: flex;
+  align-items: center;
+}
+.logininfo {
+  display: flex;
+  align-items: center;
+}
+
+.login_error {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  width: auto;
+  height: 60px;
+  background-color: rgb(218, 40, 40);
+  color: white;
+  border-radius: 10px;
+}
+
+.login_error img {
+  width: 35px;
+  height: 35px;
+  padding: 8px;
+}
