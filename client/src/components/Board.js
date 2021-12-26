@@ -312,8 +312,8 @@ function Board(props) {
               onClick={() => {
                 resign();
                 orientation === "black"
-                  ? setResult("Black Win")
-                  : setResult("White Win");
+                  ? setResult("White Win")
+                  : setResult("Black Win");
                 setReason("by resignation");
                 setGameOver(true);
                 mytimer.current !== undefined &&
@@ -340,7 +340,7 @@ function Board(props) {
           />
         </div>
       </div>
-      {gameOver && <Result result={result} reason={reason} />}
+      {gameOver && <Result id='online' result={result} reason={reason} />}
     </div>
   );
 }

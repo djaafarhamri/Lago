@@ -97,7 +97,7 @@ export default function ComputerBoard() {
 
   return (
     <div className="computer_board">
-      {gameOver && <Result result={result} reason={reason} />}
+      {gameOver && <Result id='computer' result={result} reason={reason} />}
       <Chessboard
         width={600}
         position={position}
