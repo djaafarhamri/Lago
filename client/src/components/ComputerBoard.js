@@ -1,15 +1,16 @@
 import React, { useState, useEffect } from "react";
-import './ComputerBoard.css'
+import "./ComputerBoard.css";
 import Chessboard from "chessboardjsx";
 import * as Chess from "chess.js";
 import { Game, getFen } from "js-chess-engine";
+import { useParams } from "react-router";
 import Result from "./Result";
 
 const chess = new Chess();
 var game = new Game();
 export default function ComputerBoard() {
-  let level = 1;
-  let orientation = 'white'
+  const { level } = useParams();
+  let orientation = "white";
   const [draggable, setDraggable] = useState(false);
   const [canDrag, setCanDrag] = useState(false);
   const [position, setPosition] = useState("start");

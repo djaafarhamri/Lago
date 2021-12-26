@@ -11,7 +11,7 @@ function App() {
     <div className="App">
       <Routes>
         <Route exact path="/" element={render} />
-        <Route exact path="/computer" element={<ComputerBoard />} />
+        <Route exact path="/computer/:level" element={<ComputerBoard />} />
         <Route exact path="/register" element={<Register />} />
         <Route path="/Game/:param" element={<Board name={name} />} />
       </Routes>

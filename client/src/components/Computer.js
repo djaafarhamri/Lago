@@ -3,7 +3,7 @@ import './Computer.css'
 import { Link } from "react-router-dom";
 import computer from "../assets/computer.png";
 
-export default function Computer() {
+export default function Computer({level}) {
   return (
     <>
       <div className="title">
@@ -12,7 +12,7 @@ export default function Computer() {
       <div className="friend computer">
         <img src={computer} alt="" />
         <h2>Computer</h2>
-        <Link to="/computer">
+        <Link to={"/computer/"+level}>
           <button>Play</button>
         </Link>
       </div>

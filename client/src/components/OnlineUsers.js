@@ -4,7 +4,7 @@ import { SocketContext } from "../context/socket";
 import defAvatatar from "../assets/chess default avatar.jpg";
 import Computer from "./Computer";
 
-const OnlineUsers = ({ name, time }) => {
+const OnlineUsers = ({ level, name, time }) => {
   const socket = useContext(SocketContext);
   const [friends, setFriends] = useState([]);
   const play = (friend) => {
@@ -58,7 +58,7 @@ const OnlineUsers = ({ name, time }) => {
             </div>
           ))}
       </div>
-      <Computer />
+      <Computer level={level} />
     </div>
   );
 };

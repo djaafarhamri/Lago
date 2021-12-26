@@ -11,7 +11,7 @@ function Home() {
   const nav = useNavigate();
   const socket = useContext(SocketContext);
   const [name, setName] = useState("");
-  const { seconds, minutes, hours, incre, renderGameSettings } = GameSettings();
+  const { seconds, minutes, hours, incre, level, renderGameSettings } = GameSettings();
   //https://floating-everglades-75335.herokuapp.com/
 
   useEffect(() => {
@@ -33,15 +33,13 @@ function Home() {
     name,
     render: (
       <div className="home">
-        <Navbar
-          name={name}
-          setName={setName}
-        />
+        <Navbar name={name} setName={setName} />
         <div className="content">
           <div className="homeBoard">
             <Chessboard width={600} position="start" />
           </div>
           <OnlineUsers
+            level={level}
             name={name}
             time={`${hours}@${minutes}@${seconds}@${incre}@`}
           />

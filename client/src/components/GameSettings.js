@@ -1,4 +1,5 @@
 import { useState } from "react";
+import ComputerSettings from "./ComputerSettinngs";
 import "./GameSettings.css";
 
 const GameSettings = () => {
@@ -6,12 +7,14 @@ const GameSettings = () => {
   const [minutes, setMinutes] = useState(10);
   const [hours, setHours] = useState(0);
   const [incre, setIncre] = useState(0);
+  const [level, setLevel] = useState(0);
 
   return {
     seconds,
     minutes,
     hours,
     incre,
+    level,
     renderGameSettings: (
       <div className="GameSettings">
         <h2>Game Settings</h2>
@@ -66,6 +69,7 @@ const GameSettings = () => {
             <p>incr</p>
           </div>
         </div>
+        <ComputerSettings level={level} setLevel={setLevel} />
       </div>
     ),
   };
