@@ -1,22 +1,42 @@
-import { useState, useEffect, useRef } from "react";
+import { SocketContext } from "../context/socket";
+import { useState, useEffect, useRef, useContext } from "react";
 import { useNavigate, useSearchParams } from "react-router-dom";
 import "./Navbar.css";
 import defaultAvatar from "../assets/chess default avatar.jpg";
 import logo from "../assets/logo.png";
 import err from "../assets/close.png";
+import Challengers from "./Challengers";
 import axios from "axios";
+import notificationImg from "../assets/notification.png";
 
-const Navbar = ({name, setName}) => {
+const Navbar = ({ name, setName }) => {
   const ENDPOINT = "http://localhost:4000/";
+  const socket = useContext(SocketContext);
   const [effect, setEffect] = useState("");
   const [username, setUsrname] = useState("");
+  const [challengers, setChallengers] = useState([]);
+  const [showChallengers, setShowChallengers] = useState(false);
   const [password, setPassword] = useState("");
   const [loginError, setLoginError] = useState(false);
   const [showInput, setShowInput] = useState(false);
+  const [times, setTimes] = useState("");
+  const [notCount, setNotCount] = useState(0);
   const inputRef = useRef();
   const [searchParams] = useSearchParams();
   const p = searchParams.get("p");
   const nav = useNavigate();
+
+  
+  useEffect(() => {
+    socket.on("challenge", (data) => {
+      setChallengers((old) => [...old, data.name]);
+      setTimes((old) => [...old, data.time]);
+    });
+  }, [socket]);
+  useEffect(() => {
+    setNotCount(challengers.length)
+  }, [challengers])
+
 
   useEffect(() => {
     if (p === "register") {
@@ -77,9 +97,30 @@ const Navbar = ({name, setName}) => {
         </div>
       )}
       <div className="logo">
-        <img src={logo} alt="" />
+        <img className="logoImg" src={logo} alt="" />
         <h2>Lago Chess</h2>
+        {name && (
+          <div className="not">
+            <img
+              className="notimg"
+              src={notificationImg}
+              alt=""
+              onClick={() => {
+                setShowChallengers(true);
+              }}
+            />
+            {notCount !== 0 && <div className="notCount">{notCount}</div>}
+            {showChallengers && (
+            <Challengers
+              times={times}
+              challengers={challengers}
+              setChallengers={setChallengers}
+            />
+          )}
+          </div>
+        )}
       </div>
+
       {!name ? (
         <div className="login">
           <button

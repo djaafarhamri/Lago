@@ -1,7 +1,9 @@
 import React, { useContext, useEffect } from "react";
-import './Challengers.css'
+import "./Challengers.css";
 import { Link } from "react-router-dom";
 import { SocketContext } from "../context/socket";
+import acceptImg from "../assets/accept.png";
+import refuseImg from "../assets/refuse.png";
 
 export default function Challengers({ times, challengers, setChallengers }) {
   const socket = useContext(SocketContext);
@@ -23,27 +25,29 @@ export default function Challengers({ times, challengers, setChallengers }) {
       {challengers &&
         challengers.map((challenger, cid) => (
           <div
-            style={{ top: (cid + 1) * 85 + "px" }}
+            style={{ top: cid * 85 + "px" }}
             className="challenger"
             key={cid}
           >
-            <p style={{ color: "white" }}>challenge from {challenger}</p>
-            <Link to={"/Game/" + times[cid] + room}>
+            <p>challenge from {challenger}</p>
+            <div className="response">
+              <Link to={"/Game/" + times[cid] + room}>
+                <button
+                  onClick={() => {
+                    accept(challenger, cid);
+                  }}
+                >
+                  <img className="responseImg" src={acceptImg} alt="" />
+                </button>
+              </Link>
               <button
                 onClick={() => {
-                  accept(challenger, cid);
+                  refuse(challenger);
                 }}
               >
-                accept
+                <img className="responseImg" src={refuseImg} alt="" />
               </button>
-            </Link>
-            <button
-              onClick={() => {
-                refuse(challenger);
-              }}
-            >
-              refuse
-            </button>
+            </div>
           </div>
         ))}
     </div>
