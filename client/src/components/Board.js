@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useContext, useRef } from "react";
-import './Board.css'
+import "./Board.css";
 import { useParams, useNavigate } from "react-router-dom";
 import Chessboard from "chessboardjsx";
 import * as Chess from "chess.js";
@@ -26,16 +26,19 @@ function Board(props) {
   const mytimer = useRef();
   const optimer = useRef();
   var config1;
-  config1 = param.split('@')
+  config1 = param.split("@");
   var hour = parseInt(config1[0]);
   var min = parseInt(config1[1]);
   var sec = parseInt(config1[2]);
   var incr = parseInt(config1[3]);
-  var time = (hour * 3600) + (min * 60) + sec
+  var time = hour * 3600 + min * 60 + sec;
   var room = config1[4];
 
   useEffect(() => {
     chess.load("rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1");
+    setResult("");
+    setReason("");
+    setGameOver(false);
   }, []);
   useEffect(() => {
     socket.emit("opname", { name: props.name, room });
@@ -76,7 +79,6 @@ function Board(props) {
   useEffect(() => {
     socket.on("OpAccepteOffer", () => {
       setOpDraw(false);
-      socket.emit("offer_accepted", room);
       setResult("Draw!!!");
       setReason("by Draw Offer");
       setGameOver(true);

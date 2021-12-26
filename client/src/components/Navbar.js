@@ -106,7 +106,7 @@ const Navbar = ({ name, setName }) => {
               src={notificationImg}
               alt=""
               onClick={() => {
-                setShowChallengers(true);
+                setShowChallengers(prev => !prev);
               }}
             />
             {notCount !== 0 && <div className="notCount">{notCount}</div>}

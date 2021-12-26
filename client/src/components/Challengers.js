@@ -25,7 +25,7 @@ export default function Challengers({ times, challengers, setChallengers }) {
       {challengers &&
         challengers.map((challenger, cid) => (
           <div
-            style={{ top: cid * 85 + "px" }}
+            style={{ top: cid * 60 + "px" }}
             className="challenger"
             key={cid}
           >
