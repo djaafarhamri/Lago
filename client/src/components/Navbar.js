@@ -10,7 +10,7 @@ import axios from "axios";
 import notificationImg from "../assets/notification.png";
 
 const Navbar = ({ name, setName }) => {
-  const ENDPOINT = "http://localhost:4000/";
+  const ENDPOINT = "https://floating-everglades-75335.herokuapp.com/";
   const socket = useContext(SocketContext);
   const [effect, setEffect] = useState("");
   const [username, setUsrname] = useState("");
