@@ -1,4 +1,4 @@
-# Chess-Remake-
+# Chess-(90%)-
 
 an online chess game coded withe mern stack (MongoDB, Express, React and node)and the help of socket.io, 
 chess.js and chessboardjsx libraries it works pretty well but it is expected a lot of new features and changes
